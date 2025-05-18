@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
-import Barbell from "../../../icons/barbell";
+import BarbellIcon from "../../../icons/barbell";
 
 export default function AuthLayout({
   children,
@@ -15,8 +15,8 @@ export default function AuthLayout({
         resizeMode="cover"
       >
         <View style={styles.headerContainer}>
-          <Barbell />
-          <Text style={styles.headerText}>Ignite Gym</Text>
+          <BarbellIcon width={40} height={40} />
+          <Text style={styles.headerText}>Yan Gym</Text>
         </View>
         <Text style={styles.subtitle}>Faça seus próprios treinos</Text>
       </ImageBackground>

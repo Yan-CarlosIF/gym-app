@@ -1,11 +1,5 @@
-import { Image } from "react-native";
+import { Image, ImageProps } from "react-native";
 
-export default function Barbell() {
-  return (
-    <Image
-      width={40}
-      height={40}
-      source={require("../assets/images/barbell.png")}
-    />
-  );
+export default function BarbellIcon({ ...props }: ImageProps) {
+  return <Image {...props} source={require("../assets/images/barbell.png")} />;
 }

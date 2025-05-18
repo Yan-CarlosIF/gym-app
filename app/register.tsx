@@ -1,42 +1,44 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Button from "../components/button";
 import Input from "../components/input";
-import AuthLayout from "../layouts/auth/layout";
+import AuthLayout from "./layouts/auth/layout";
 
-export default function Login({ navigation }: any) {
+export default function Register() {
+  const router = useRouter();
+
   return (
     <AuthLayout>
       <View style={styles.formContainer}>
-        <Text style={styles.formTitle}>Acesse sua conta</Text>
+        <Text style={styles.formTitle}>Crie sua conta</Text>
+
+        <Input placeholder="Nome" />
 
         <Input placeholder="Email" />
 
         <Input placeholder="Senha" />
 
+        <Input placeholder="Confirmar senha" />
+
         <Button variant="primary">
-          <Text style={styles.primaryButtonText}>Acessar</Text>
+          <Text style={styles.primaryButtonText}>Criar conta</Text>
         </Button>
       </View>
-      <View style={{ marginTop: "auto", display: "flex", gap: 12 }}>
-        <Text style={{ color: "#d1d5db", textAlign: "center" }}>
-          Ainda não tem acesso?
-        </Text>
-        <Button
-          variant="outline"
-          onPress={() => navigation.navigate("Register")}
-          style={{ marginHorizontal: 40 }}
-        >
-          <Text style={styles.secondaryButtonText}>Criar conta</Text>
-        </Button>
-      </View>
+      <Button
+        variant="outline"
+        onPress={() => router.push("/login")}
+        style={{ marginHorizontal: 40, marginTop: "auto" }}
+      >
+        <Text style={styles.secondaryButtonText}>Voltar ao login</Text>
+      </Button>
     </AuthLayout>
   );
 }
 
 const styles = StyleSheet.create({
   formContainer: {
-    marginTop: -290,
+    marginTop: -375,
     paddingHorizontal: 40,
     gap: 16,
   },
