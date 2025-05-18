@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { StyleSheet, TextInput, TextInputProps } from "react-native";
 
-export default function Input({ placeholder }: TextInputProps) {
+export default function Input({ placeholder, style }: TextInputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
     <TextInput
-      style={[style.input, isFocused && style.focused]}
+      style={[standartStyle.input, style, isFocused && standartStyle.focused]}
       placeholder={placeholder}
       placeholderTextColor={isFocused ? "#d1d5db" : "#7C7C8A"}
       onFocus={() => setIsFocused(true)}
@@ -15,7 +15,7 @@ export default function Input({ placeholder }: TextInputProps) {
   );
 }
 
-const style = StyleSheet.create({
+const standartStyle = StyleSheet.create({
   input: {
     height: 52,
     borderRadius: 6,

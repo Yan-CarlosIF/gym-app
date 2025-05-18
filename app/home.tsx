@@ -1,6 +1,15 @@
+import ExerciseLabel from "@/components/exercise-label";
+import MuscleLabel from "@/components/muscle-label";
 import ExitIcon from "@/icons/exit";
 import { useRouter } from "expo-router";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import HomeLayout from "./layouts/home/layout";
 
 function Header() {
@@ -20,7 +29,7 @@ function Header() {
           width={64}
           height={64}
           style={{
-            borderRadius: 50,
+            borderRadius: 99,
             borderWidth: 3,
             borderColor: "#323238",
           }}
@@ -46,7 +55,42 @@ function Header() {
 export default function HomeScreen() {
   return (
     <HomeLayout header={<Header />}>
-      <Text>Home</Text>
+      <ScrollView
+        contentContainerStyle={style.musclesView}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        <MuscleLabel muscleName="Costas" isActive={true} />
+        <MuscleLabel muscleName="Costas" isActive={false} />
+        <MuscleLabel muscleName="Costas" isActive={false} />
+        <MuscleLabel muscleName="Costas" isActive={false} />
+        <MuscleLabel muscleName="Costas" isActive={false} />
+      </ScrollView>
+      <View style={style.titleConteiner}>
+        <Text
+          style={{
+            fontSize: 16,
+            color: "#C4C4CC",
+            fontWeight: "bold",
+          }}
+        >
+          Exercícios
+        </Text>
+        <Text style={{ fontSize: 14, color: "#C4C4CC" }}>4</Text>
+      </View>
+      <ScrollView contentContainerStyle={style.exerciseConteiner}>
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+        <ExerciseLabel />
+      </ScrollView>
     </HomeLayout>
   );
 }
@@ -61,5 +105,25 @@ const style = StyleSheet.create({
   headerText: {
     fontSize: 16,
     color: "#E1E1E6",
+  },
+  musclesView: {
+    paddingLeft: 32,
+    marginVertical: 40,
+    gap: 12,
+    paddingRight: 8,
+  },
+  titleConteiner: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 32,
+  },
+  exerciseConteiner: {
+    display: "flex",
+    gap: 16,
+    alignItems: "center",
+    paddingHorizontal: 32,
+    marginVertical: 8,
   },
 });
