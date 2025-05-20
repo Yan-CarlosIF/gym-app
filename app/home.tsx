@@ -53,6 +53,8 @@ function Header() {
 }
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <HomeLayout header={<Header />}>
       <ScrollView
@@ -79,17 +81,15 @@ export default function HomeScreen() {
         <Text style={{ fontSize: 14, color: "#C4C4CC" }}>4</Text>
       </View>
       <ScrollView contentContainerStyle={style.exerciseConteiner}>
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
-        <ExerciseLabel />
+        {Array.from({ length: 4 }).map((_, index) => (
+          <ExerciseLabel
+            key={index}
+            exerciseName={`Exercicio ${index}`}
+            onPress={() =>
+              router.push(`/exercise?exerciseName=Exercicio${index}`)
+            }
+          />
+        ))}
       </ScrollView>
     </HomeLayout>
   );

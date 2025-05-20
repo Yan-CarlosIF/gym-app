@@ -21,7 +21,13 @@ export default function HomeLayout({
       <ScrollView style={style.main}>{children}</ScrollView>
       <View style={style.footer}>
         <TouchableOpacity onPress={() => router.push("/home")}>
-          <HomeIcon tintColor={routeName === "home" ? "#00B37E" : "#7C7C8A"} />
+          <HomeIcon
+            tintColor={
+              routeName === "home" || routeName === "exercise"
+                ? "#00B37E"
+                : "#7C7C8A"
+            }
+          />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => router.push("/workouts")}>
           <BarbellIcon
@@ -54,7 +60,6 @@ const style = StyleSheet.create({
     flexDirection: "row",
     paddingBottom: 28,
     alignItems: "flex-end",
-    justifyContent: "center",
     paddingInline: 32,
   },
   headerText: {

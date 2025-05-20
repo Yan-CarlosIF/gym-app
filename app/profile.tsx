@@ -53,6 +53,8 @@ const style = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "#E1E1E6",
+    textAlign: "center",
+    width: "100%",
   },
   avatar: {
     width: 148,

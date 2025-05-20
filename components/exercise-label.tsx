@@ -1,16 +1,23 @@
 import ChevronRightIcon from "@/icons/chevron-right";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+} from "react-native";
 
-// type ExerciseLabelProps = {
-//   exerciseName: string;
-//   series: number;
-//   repetitions: number;
-//   icon?: NodeRequire;
-// };
+interface ExerciseLabelProps extends TouchableOpacityProps {
+  exerciseName: string;
+  series?: number;
+  repetitions?: number;
+  // icon?: NodeRequire;
+}
 
-export default function ExerciseLabel() {
+export default function ExerciseLabel({ ...props }: ExerciseLabelProps) {
   return (
     <TouchableOpacity
+      {...props}
       activeOpacity={0.8}
       style={{
         display: "flex",
@@ -29,7 +36,7 @@ export default function ExerciseLabel() {
       />
       <View style={{ display: "flex", gap: 6 }}>
         <Text style={{ color: "white", fontSize: 18, fontWeight: "bold" }}>
-          Nome Exercicio
+          {props.exerciseName}
         </Text>
         <Text style={{ color: "#C4C4CC", fontSize: 14 }}>
           3 series x 12 repetições
